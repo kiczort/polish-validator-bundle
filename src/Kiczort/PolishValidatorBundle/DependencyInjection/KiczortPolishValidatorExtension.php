@@ -13,10 +13,8 @@ namespace Kiczort\PolishValidatorBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
-use Symfony\Component\Yaml\Parser as YamlParser;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -38,7 +36,7 @@ class KiczortPolishValidatorExtension extends Extension
         $class_info = new \ReflectionClass($this);
         $dir = dirname($class_info->getFileName());
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator($dir.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator($dir . '/../Resources/config'));
         $loader->load('services.yml');
     }
 }

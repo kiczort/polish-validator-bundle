@@ -30,7 +30,7 @@ class NipValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint)
     {
         if (!$constraint instanceof Nip) {
-            throw new UnexpectedTypeException($constraint, __NAMESPACE__.'\Nip');
+            throw new UnexpectedTypeException($constraint, __NAMESPACE__ . '\Nip');
         }
 
         if (null === $value || '' === $value) {
@@ -44,7 +44,7 @@ class NipValidator extends ConstraintValidator
         $value = (string) $value;
 
         $validator = new \Kiczort\PolishValidator\NipValidator();
-        if (! $validator->isValid($value)) {
+        if (!$validator->isValid($value)) {
             if ($this->context instanceof ExecutionContextInterface) {
                 $this->context->buildViolation($constraint->message)
                     ->setParameter('{{ value }}', $this->formatValue($value))

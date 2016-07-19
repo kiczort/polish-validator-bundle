@@ -30,7 +30,7 @@ class PeselValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint)
     {
         if (!$constraint instanceof Pesel) {
-            throw new UnexpectedTypeException($constraint, __NAMESPACE__.'\Pesel');
+            throw new UnexpectedTypeException($constraint, __NAMESPACE__ . '\Pesel');
         }
 
         if (null === $value || '' === $value) {
@@ -44,7 +44,7 @@ class PeselValidator extends ConstraintValidator
         $value = (string) $value;
 
         $validator = new \Kiczort\PolishValidator\PeselValidator();
-        if (! $validator->isValid($value, array('strict' => (bool)$constraint->strict))) {
+        if (!$validator->isValid($value, array('strict' => (bool)$constraint->strict))) {
             if ($this->context instanceof ExecutionContextInterface) {
                 $this->context->buildViolation($constraint->message)
                     ->setParameter('{{ value }}', $this->formatValue($value))

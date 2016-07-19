@@ -72,7 +72,7 @@ class NipValidatorTest extends AbstractConstraintValidatorTest
         $this->validator->validate($nip, $constraint);
 
         $this->buildViolation('myMessage')
-            ->setParameter('{{ value }}', '"'.$nip.'"')
+            ->setParameter('{{ value }}', '"' . $nip . '"')
             ->assertRaised();
     }
 

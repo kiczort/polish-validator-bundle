@@ -30,7 +30,7 @@ class RegonValidator extends ConstraintValidator
     public function validate($value, Constraint $constraint)
     {
         if (!$constraint instanceof Regon) {
-            throw new UnexpectedTypeException($constraint, __NAMESPACE__.'\Regon');
+            throw new UnexpectedTypeException($constraint, __NAMESPACE__ . '\Regon');
         }
 
         if (null === $value || '' === $value) {
@@ -44,7 +44,7 @@ class RegonValidator extends ConstraintValidator
         $value = (string) $value;
 
         $validator = new \Kiczort\PolishValidator\RegonValidator();
-        if (! $validator->isValid($value)) {
+        if (!$validator->isValid($value)) {
             if ($this->context instanceof ExecutionContextInterface) {
                 $this->context->buildViolation($constraint->message)
                     ->setParameter('{{ value }}', $this->formatValue($value))

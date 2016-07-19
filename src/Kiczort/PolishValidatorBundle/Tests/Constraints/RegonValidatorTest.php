@@ -72,7 +72,7 @@ class RegonValidatorTest extends AbstractConstraintValidatorTest
         $this->validator->validate($regon, $constraint);
 
         $this->buildViolation('myMessage')
-            ->setParameter('{{ value }}', '"'.$regon.'"')
+            ->setParameter('{{ value }}', '"' . $regon . '"')
             ->assertRaised();
     }
 

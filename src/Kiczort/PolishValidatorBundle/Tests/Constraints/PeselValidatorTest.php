@@ -84,7 +84,7 @@ class PeselValidatorTest extends AbstractConstraintValidatorTest
         $this->validator->validate($pesel, $constraint);
 
         $this->buildViolation('myMessage')
-            ->setParameter('{{ value }}', '"'.$pesel.'"')
+            ->setParameter('{{ value }}', '"' . $pesel . '"')
             ->assertRaised();
     }
 
