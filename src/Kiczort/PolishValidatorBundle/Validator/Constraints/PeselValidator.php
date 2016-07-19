@@ -33,7 +33,7 @@ class PeselValidator extends ValidatorAbstract
      */
     public function getValidationOptions(Constraint $constraint)
     {
-        return array('strict' => (bool)$constraint->strict);
+        return array('strict' => (bool) $constraint->strict);
     }
 
     /**
