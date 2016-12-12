@@ -1,6 +1,6 @@
 {
-    "name": "kiczort/polish-validator-bundle",
-    "description": "Symfony2 bundle with validators for Polish identification numbers: PESEL, NIP, REGON.",
+    "name": "mikoweb/polish-validator-bundle",
+    "description": "Symfony bundle with validators for Polish identification numbers: PESEL, NIP, REGON.",
     "keywords": ["polish validator", "pl validator", "pesel", "nip", "regon", "symfony bundle", "validator", "symfony validator"],
     "license": "MIT",
     "authors": [
@@ -13,8 +13,8 @@
     "require": {
         "php": ">=5.3.1",
         "kiczort/polish-validator": "^1.0",
-        "symfony/framework-bundle" : "~2.1",
-        "symfony/validator": "^2.1"
+        "symfony/framework-bundle" : "~2.1|~3.0",
+        "symfony/validator": "^2.1|~3.0"
     },
     "require-dev": {
         "phpunit/phpunit": "4.8"
