@@ -5,16 +5,16 @@ parameters:
 
 services:
     kiczort.validator.pesel:
-        class: %kiczort.validator.pesel.class%
+        class: "%kiczort.validator.pesel.class%"
         tags:
             - { name: validator.constraint_validator, alias: kiczort.validator.pesel }
 
     kiczort.validator.nip:
-        class: %kiczort.validator.nip.class%
+        class: "%kiczort.validator.nip.class%"
         tags:
             - { name: validator.constraint_validator, alias: kiczort.validator.nip }
 
     kiczort.validator.regon:
-        class: %kiczort.validator.regon.class%
+        class: "%kiczort.validator.regon.class%"
         tags:
             - { name: validator.constraint_validator, alias: kiczort.validator.regon }
