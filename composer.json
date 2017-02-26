@@ -1,7 +1,7 @@
 {
     "name": "mikoweb/polish-validator-bundle",
     "description": "Symfony bundle with validators for Polish identification numbers: PESEL, NIP, REGON.",
-    "keywords": ["polish validator", "pl validator", "pesel", "nip", "regon", "symfony bundle", "validator", "symfony validator"],
+    "keywords": ["polish validator", "pl validator", "pesel", "nip", "regon", "pwz", "symfony bundle", "validator", "symfony validator"],
     "license": "MIT",
     "authors": [
         {
@@ -9,7 +9,6 @@
             "email": "gkozinski@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.1",
         "kiczort/polish-validator": "^1.0",
