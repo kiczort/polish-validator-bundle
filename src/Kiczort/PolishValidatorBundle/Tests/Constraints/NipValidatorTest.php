@@ -14,6 +14,7 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Nip;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\NipValidator;
 use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Symfony\Component\Validator\Validation;
 
 /**
  * @author Grzegorz Koziński <gkozinski@gmail.com>
@@ -98,5 +99,10 @@ class NipValidatorTest extends AbstractConstraintValidatorTest
             array('123456789a'),
             array('1234563217'),
         );
+    }
+
+    protected function getApiVersion()
+    {
+        return Validation::API_VERSION_2_5_BC;
     }
 }

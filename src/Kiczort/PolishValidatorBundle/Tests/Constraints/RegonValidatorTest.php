@@ -14,20 +14,13 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Regon;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\RegonValidator;
 use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Symfony\Component\Validator\Validation;
 
 /**
  * @author Grzegorz Koziński <gkozinski@gmail.com>
  */
 class RegonValidatorTest extends AbstractConstraintValidatorTest
 {
-    /**
-     * @return RegonValidator
-     */
-    protected function createValidator()
-    {
-        return new RegonValidator();
-    }
-
     public function testNullIsValid()
     {
         $this->validator->validate(null, new Regon());
@@ -103,5 +96,18 @@ class RegonValidatorTest extends AbstractConstraintValidatorTest
             array('123456789012345'),
             array('12345678'),
         );
+    }
+
+    /**
+     * @return RegonValidator
+     */
+    protected function createValidator()
+    {
+        return new RegonValidator();
+    }
+
+    protected function getApiVersion()
+    {
+        return Validation::API_VERSION_2_5_BC;
     }
 }

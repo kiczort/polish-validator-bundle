@@ -14,6 +14,7 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Pesel;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\PeselValidator;
 use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Symfony\Component\Validator\Validation;
 
 /**
  * @author Grzegorz Koziński <gkozinski@gmail.com>
@@ -147,5 +148,10 @@ class PeselValidatorTest extends AbstractConstraintValidatorTest
         return array(
             array('44051401358'),
         );
+    }
+
+    protected function getApiVersion()
+    {
+        return Validation::API_VERSION_2_5_BC;
     }
 }
