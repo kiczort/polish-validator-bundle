@@ -5,3 +5,5 @@ php:
   - '7.0'
 install:
    - composer install
+
+script: vendor/phpunit/phpunit/phpunit --verbose
