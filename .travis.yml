@@ -13,8 +13,9 @@ php:
 - hhvm
 - nightly
 env:
-- COMPOSER_FLAGS='--prefer-lowest --prefer-stable'
-- COMPOSER_FLAGS=''
+- COMPOSER_FLAGS='update --prefer-lowest --prefer-stable'
+- COMPOSER_FLAGS='install'
+- COMPOSER_FLAGS='update'
 
 matrix:
   allow_failures:
@@ -23,6 +24,6 @@ matrix:
   fast_finish: true
 
 install:
-  - composer update $COMPOSER_FLAGS --prefer-dist --no-interaction
+  - composer $COMPOSER_FLAGS --prefer-dist --no-interaction
 
 script: vendor/phpunit/phpunit/phpunit --verbose
