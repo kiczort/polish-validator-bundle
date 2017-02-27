@@ -2,6 +2,7 @@ parameters:
     kiczort.validator.pesel.class: Kiczort\PolishValidatorBundle\Validator\Constraints\PeselValidator
     kiczort.validator.nip.class: Kiczort\PolishValidatorBundle\Validator\Constraints\NipValidator
     kiczort.validator.regon.class: Kiczort\PolishValidatorBundle\Validator\Constraints\RegonValidator
+    kiczort.validator.pwz.class: Kiczort\PolishValidatorBundle\Validator\Constraints\PwzValidator
 
 services:
     kiczort.validator.pesel:
@@ -18,3 +19,8 @@ services:
         class: "%kiczort.validator.regon.class%"
         tags:
             - { name: validator.constraint_validator, alias: kiczort.validator.regon }
+
+    kiczort.validator.pwz:
+        class: "%kiczort.validator.pwz.class%"
+        tags:
+            - { name: validator.constraint_validator, alias: kiczort.validator.pwz }

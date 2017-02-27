@@ -14,14 +14,19 @@ namespace Kiczort\PolishValidatorBundle\Validator\Constraints;
 use Symfony\Component\Validator\Constraint;
 
 /**
- * @author Michał MLeczko <kontakt@michalmleczko.waw.pl>
+ * @author Michał Mleczko <kontakt@michalmleczko.waw.pl>
  *
  * @Annotation
  */
 class Pwz extends Constraint
 {
-    public $invalidCharactersMessage = 'PWZ number contains invalid characters.';
-    public $tooShortMessage = 'PWZ number is too short.';
-    public $tooLongMessage = 'PWZ number is too long.';
     public $nonValidMessage = 'PWZ number is invalid';
+
+    /**
+     * {@inheritdoc}
+     */
+    public function validatedBy()
+    {
+        return 'kiczort.validator.pwz';
+    }
 }
