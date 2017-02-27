@@ -102,6 +102,29 @@ class Company
 }
 ```
 
+## Example of use PwzValidator:
+
+PWZ means "licence to practise a profession" (pl. "prawo wykonywania zawodu"),
+number given to doctors from NIL (polish Chamber of Physicians and Dentists).
+Validator accepts also empty strings and nulls so you have to add "Assert/NotBlank" myself.
+
+
+```php
+...
+// src/AppBundle/Entity/Company.php
+namespace AppBundle\Entity;
+
+use KiczortPolishValidatorBundle\Validator\Constraints as KiczortAssert;
+
+class Doctor
+{
+    /**
+     * @KiczortAssert\Pwz
+     */
+     protected $pwz;
+}
+```
+
 # Bug tracking
 
 [GitHub issues](https://github.com/kiczort/polish-validator-bundle/issues).
