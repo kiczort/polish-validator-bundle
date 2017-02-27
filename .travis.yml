@@ -18,6 +18,9 @@ env:
 - COMPOSER_FLAGS='update'
 
 matrix:
+  exclude:
+    - php: 5.3
+      env: COMPOSER_FLAGS='install'
   allow_failures:
     - php: hhvm
     - php: nightly
