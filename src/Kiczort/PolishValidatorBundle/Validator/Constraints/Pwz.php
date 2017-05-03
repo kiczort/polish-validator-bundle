@@ -20,7 +20,7 @@ use Symfony\Component\Validator\Constraint;
  */
 class Pwz extends Constraint
 {
-    public $nonValidMessage = 'PWZ number is invalid';
+    public $message = 'This is not a valid PWZ number.';
 
     /**
      * {@inheritdoc}
