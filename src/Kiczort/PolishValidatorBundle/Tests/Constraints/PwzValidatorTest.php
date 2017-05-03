@@ -13,12 +13,12 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Pwz;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\PwzValidator;
-use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
+use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
 
 /**
  * @author Michał Mleczko
  */
-class PwzValidatorTest extends ConstraintValidatorTestCase
+class PwzValidatorTest extends AbstractConstraintValidatorTest
 {
     public function testNullIsValid()
     {
