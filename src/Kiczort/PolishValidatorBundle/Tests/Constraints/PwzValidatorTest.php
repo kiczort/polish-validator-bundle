@@ -14,6 +14,7 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Pwz;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\PwzValidator;
 use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Symfony\Component\Validator\Validation;
 
 /**
  * @author Michał Mleczko
@@ -104,5 +105,10 @@ class PwzValidatorTest extends AbstractConstraintValidatorTest
     protected function createValidator()
     {
         return new PwzValidator();
+    }
+
+    protected function getApiVersion()
+    {
+        return Validation::API_VERSION_2_5_BC;
     }
 }
