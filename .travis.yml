@@ -5,7 +5,6 @@ cache:
     - $HOME/.composer/cache/files
 
 php:
-- 5.3
 - 5.5
 - 5.6
 - 7.0
@@ -18,9 +17,6 @@ env:
 - COMPOSER_FLAGS='update'
 
 matrix:
-  exclude:
-    - php: 5.3
-      env: COMPOSER_FLAGS='install'
   allow_failures:
     - php: hhvm
     - php: nightly
