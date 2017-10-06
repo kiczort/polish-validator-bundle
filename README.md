@@ -52,7 +52,7 @@ In case of none strict mode it checks length, used chars and correctness of date
 // src/AppBundle/Entity/Person.php
 namespace AppBundle\Entity;
 
-use KiczortPolishValidatorBundle\Validator\Constraints as KiczortAssert;
+use Kiczort\PolishValidatorBundle\Validator\Constraints  as KiczortAssert;
 
 class Person
 {
@@ -73,7 +73,7 @@ class Person
 // src/AppBundle/Entity/Person.php
 namespace AppBundle\Entity;
 
-use KiczortPolishValidatorBundle\Validator\Constraints as KiczortAssert;
+use Kiczort\PolishValidatorBundle\Validator\Constraints as KiczortAssert;
 
 class Person
 {
@@ -91,7 +91,7 @@ class Person
 // src/AppBundle/Entity/Company.php
 namespace AppBundle\Entity;
 
-use KiczortPolishValidatorBundle\Validator\Constraints as KiczortAssert;
+use Kiczort\PolishValidatorBundle\Validator\Constraints as KiczortAssert;
 
 class Company
 {
@@ -114,7 +114,7 @@ Validator accepts also empty strings and nulls so you have to add "Assert/NotBla
 // src/AppBundle/Entity/Company.php
 namespace AppBundle\Entity;
 
-use KiczortPolishValidatorBundle\Validator\Constraints as KiczortAssert;
+use Kiczort\PolishValidatorBundle\Validator\Constraints  as KiczortAssert;
 
 class Doctor
 {
