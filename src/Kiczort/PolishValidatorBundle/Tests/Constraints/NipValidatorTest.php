@@ -13,13 +13,13 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Nip;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\NipValidator;
-use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
 
 /**
  * @author Grzegorz Koziński <gkozinski@gmail.com>
  */
-class NipValidatorTest extends AbstractConstraintValidatorTest
+class NipValidatorTest extends ConstraintValidatorTestCase
 {
     /**
      * @return NipValidator

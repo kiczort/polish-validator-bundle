@@ -5,25 +5,19 @@ cache:
     - $HOME/.composer/cache/files
 
 php:
-- 5.4
-- 5.5
 - 5.6
 - 7.0
 - 7.1
-- hhvm
-- nightly
+- 7.2
+
 env:
 - COMPOSER_FLAGS='update --prefer-lowest --prefer-stable'
-- COMPOSER_FLAGS='install'
 - COMPOSER_FLAGS='update'
 
 matrix:
   exclude:
-    - php: 5.4
-      env: COMPOSER_FLAGS='install'
-  allow_failures:
-    - php: hhvm
-    - php: nightly
+    - php: 7.2
+      env: COMPOSER_FLAGS='update --prefer-lowest --prefer-stable'
   fast_finish: true
 
 install:
