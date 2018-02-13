@@ -13,13 +13,13 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Pesel;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\PeselValidator;
-use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
 
 /**
  * @author Grzegorz Koziński <gkozinski@gmail.com>
  */
-class PeselValidatorTest extends AbstractConstraintValidatorTest
+class PeselValidatorTest extends ConstraintValidatorTestCase
 {
     /**
      * @return PeselValidator
