@@ -15,15 +15,6 @@ env:
 - COMPOSER_FLAGS='update'
 
 matrix:
-  exclude:
-    - php: 5.6
-      env: COMPOSER_FLAGS='update'
-    - php: 7.0
-      env: COMPOSER_FLAGS='update'
-    - php: 7.1
-      env: COMPOSER_FLAGS='update'
-    - php: 7.2
-      env: COMPOSER_FLAGS='update --prefer-lowest --prefer-stable'
   fast_finish: true
 
 install:
