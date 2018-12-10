@@ -5,6 +5,7 @@ Symfony2 bundle with Polish validators
 [![Version](https://img.shields.io/packagist/v/kiczort/polish-validator-bundle.svg)](https://packagist.org/packages/kiczort/polish-validator-bundle)
 [![Build status](https://travis-ci.org/kiczort/polish-validator-bundle.svg)](http://travis-ci.org/kiczort/polish-validator-bundle)
 [![Scrutinizer Quality Score](https://img.shields.io/scrutinizer/g/kiczort/polish-validator-bundle.svg)](https://scrutinizer-ci.com/g/kiczort/polish-validator-bundle/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkiczort%2Fpolish-validator-bundle.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkiczort%2Fpolish-validator-bundle?ref=badge_shield)
 
 This is Symfony2 bundle with validators for Polish identification numbers like: PESEL, NIP, REGON and PWZ.
  
@@ -135,3 +136,6 @@ If you have found bug, please create an issue.
 
 License can be found [here](https://github.com/kiczort/polish-validator-bundle/blob/master/LICENSE).
 
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkiczort%2Fpolish-validator-bundle.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkiczort%2Fpolish-validator-bundle?ref=badge_large)
