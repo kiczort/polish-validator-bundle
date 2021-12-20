@@ -13,6 +13,7 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Regon;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\RegonValidator;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
 
@@ -35,11 +36,9 @@ class RegonValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @expectedException \Symfony\Component\Validator\Exception\UnexpectedTypeException
-     */
     public function testExpectsStringCompatibleType()
     {
+        $this->expectException(UnexpectedTypeException::class);
         $this->validator->validate(new \stdClass(), new Regon());
     }
 
@@ -58,9 +57,9 @@ class RegonValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidRegon($regon)
     {
-        $constraint = new Regon(array(
+        $constraint = new Regon([
             'message' => 'myMessage',
-        ));
+        ]);
 
         $this->validator->validate($regon, $constraint);
 
@@ -74,10 +73,10 @@ class RegonValidatorTest extends ConstraintValidatorTestCase
      */
     public function getValidRegonNumbers()
     {
-        return array(
-            array('123456785'),
-            array('12345678512347'),
-        );
+        return [
+            ['123456785'],
+            ['12345678512347'],
+        ];
     }
 
     /**
@@ -85,17 +84,17 @@ class RegonValidatorTest extends ConstraintValidatorTestCase
      */
     public function getInvalidRegonNumbers()
     {
-        return array(
-            array('12345678512346'),
-            array('123456786'),
-            array('12345678a'),
-            array('1234567890123'),
-            array('123456789012'),
-            array('12345678901'),
-            array('1234567890'),
-            array('123456789012345'),
-            array('12345678'),
-        );
+        return [
+            ['12345678512346'],
+            ['123456786'],
+            ['12345678a'],
+            ['1234567890123'],
+            ['123456789012'],
+            ['12345678901'],
+            ['1234567890'],
+            ['123456789012345'],
+            ['12345678'],
+        ];
     }
 
     /**
@@ -106,8 +105,4 @@ class RegonValidatorTest extends ConstraintValidatorTestCase
         return new RegonValidator();
     }
 
-    protected function getApiVersion()
-    {
-        return Validation::API_VERSION_2_5_BC;
-    }
 }

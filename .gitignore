@@ -2,5 +2,5 @@ composer.phar
 vendor/
 bin/
 .idea
-
+.phpunit.result.cache
 

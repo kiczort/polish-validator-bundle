@@ -26,7 +26,7 @@ class Pesel extends Constraint
     /**
      * {@inheritdoc}
      */
-    public function validatedBy()
+    public function validatedBy(): string
     {
         return 'kiczort.validator.pesel';
     }

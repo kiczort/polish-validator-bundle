@@ -13,8 +13,9 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Nip;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\NipValidator;
+use stdClass;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
-use Symfony\Component\Validator\Validation;
 
 /**
  * @author Grzegorz Koziński <gkozinski@gmail.com>
@@ -43,12 +44,10 @@ class NipValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @expectedException \Symfony\Component\Validator\Exception\UnexpectedTypeException
-     */
     public function testExpectsStringCompatibleType()
     {
-        $this->validator->validate(new \stdClass(), new Nip());
+        $this->expectException(UnexpectedTypeException::class);
+        $this->validator->validate(new stdClass(), new Nip());
     }
 
     /**
@@ -66,9 +65,9 @@ class NipValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidNip($nip)
     {
-        $constraint = new Nip(array(
+        $constraint = new Nip([
             'message' => 'myMessage',
-        ));
+        ]);
 
         $this->validator->validate($nip, $constraint);
 
@@ -82,9 +81,9 @@ class NipValidatorTest extends ConstraintValidatorTestCase
      */
     public function getValidNipNumbers()
     {
-        return array(
-            array('1234563218'),
-        );
+        return [
+            ['1234563218'],
+        ];
     }
 
     /**
@@ -92,17 +91,13 @@ class NipValidatorTest extends ConstraintValidatorTestCase
      */
     public function getInvalidNipNumbers()
     {
-        return array(
-            array('123456789'),
-            array('12345678901'),
-            array('0000000000'),
-            array('123456789a'),
-            array('1234563217'),
-        );
+        return [
+            ['123456789'],
+            ['12345678901'],
+            ['0000000000'],
+            ['123456789a'],
+            ['1234563217'],
+        ];
     }
 
-    protected function getApiVersion()
-    {
-        return Validation::API_VERSION_2_5_BC;
-    }
 }

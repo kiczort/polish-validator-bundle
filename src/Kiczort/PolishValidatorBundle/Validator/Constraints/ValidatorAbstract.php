@@ -26,18 +26,18 @@ abstract class ValidatorAbstract extends ConstraintValidator
     /**
      * @return ValidatorInterface
      */
-    abstract public function getBaseValidator();
+    abstract public function getBaseValidator(): ValidatorInterface;
 
     /**
      * @param Constraint $constraint
      * @return array
      */
-    abstract public function getValidationOptions(Constraint $constraint);
+    abstract public function getValidationOptions(Constraint $constraint): array;
 
     /**
      * @return string
      */
-    abstract public function getValidatorConstraintClass();
+    abstract public function getValidatorConstraintClass(): string;
 
     /**
      * Checks if the passed value is valid.
