@@ -13,8 +13,9 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Pwz;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\PwzValidator;
+use stdClass;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
-use Symfony\Component\Validator\Validation;
 
 /**
  * @author Michał Mleczko
@@ -35,12 +36,10 @@ class PwzValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @expectedException \Symfony\Component\Validator\Exception\UnexpectedTypeException
-     */
     public function testExpectsStringCompatibleType()
     {
-        $this->validator->validate(new \stdClass(), new Pwz());
+        $this->expectException(UnexpectedTypeException::class);
+        $this->validator->validate(new stdClass(), new Pwz());
     }
 
     /**
@@ -58,9 +57,9 @@ class PwzValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidPwz($pwz)
     {
-        $constraint = new Pwz(array(
+        $constraint = new Pwz([
             'message' => 'myMessage',
-        ));
+        ]);
 
         $this->validator->validate($pwz, $constraint);
 
@@ -74,15 +73,15 @@ class PwzValidatorTest extends ConstraintValidatorTestCase
      */
     public function getValidPwzNumbers()
     {
-        return array(
-            array('7305386'),
-            array('7520143'),
-            array('5773472'),
-            array('1241156'),
-            array('8839283'),
-            array('4470910'),
-            array('4850185'),
-        );
+        return [
+            ['7305386'],
+            ['7520143'],
+            ['5773472'],
+            ['1241156'],
+            ['8839283'],
+            ['4470910'],
+            ['4850185'],
+        ];
     }
 
     /**
@@ -90,13 +89,13 @@ class PwzValidatorTest extends ConstraintValidatorTestCase
      */
     public function getInvalidPwzNumbers()
     {
-        return array(
-            array('0'),
-            array('0000000000000'),
-            array('0000000'),
-            array('1111111'),
-            array('2222222'),
-        );
+        return [
+            ['0'],
+            ['0000000000000'],
+            ['0000000'],
+            ['1111111'],
+            ['2222222'],
+        ];
     }
 
     /**
@@ -107,8 +106,4 @@ class PwzValidatorTest extends ConstraintValidatorTestCase
         return new PwzValidator();
     }
 
-    protected function getApiVersion()
-    {
-        return Validation::API_VERSION_2_5_BC;
-    }
 }

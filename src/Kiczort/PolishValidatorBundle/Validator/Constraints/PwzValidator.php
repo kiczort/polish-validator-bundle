@@ -25,7 +25,7 @@ class PwzValidator extends ValidatorAbstract
     /**
      * @return ValidatorInterface
      */
-    public function getBaseValidator()
+    public function getBaseValidator(): ValidatorInterface
     {
         return new \Kiczort\PolishValidator\PwzValidator();
     }
@@ -34,15 +34,15 @@ class PwzValidator extends ValidatorAbstract
      * @param Constraint $constraint
      * @return array
      */
-    public function getValidationOptions(Constraint $constraint)
+    public function getValidationOptions(Constraint $constraint): array
     {
-        return array();
+        return [];
     }
 
     /**
      * @return string
      */
-    public function getValidatorConstraintClass()
+    public function getValidatorConstraintClass(): string
     {
         return __NAMESPACE__ . '\Pwz';
     }

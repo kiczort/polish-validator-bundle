@@ -22,7 +22,7 @@ class PeselValidator extends ValidatorAbstract
     /**
      * @return ValidatorInterface
      */
-    public function getBaseValidator()
+    public function getBaseValidator(): ValidatorInterface
     {
         return new \Kiczort\PolishValidator\PeselValidator();
     }
@@ -31,15 +31,15 @@ class PeselValidator extends ValidatorAbstract
      * @param Constraint $constraint
      * @return array
      */
-    public function getValidationOptions(Constraint $constraint)
+    public function getValidationOptions(Constraint $constraint): array
     {
-        return array('strict' => (bool) $constraint->strict);
+        return ['strict' => (bool) $constraint->strict];
     }
 
     /**
      * @return string
      */
-    public function getValidatorConstraintClass()
+    public function getValidatorConstraintClass(): string
     {
         return __NAMESPACE__ . '\Pesel';
     }

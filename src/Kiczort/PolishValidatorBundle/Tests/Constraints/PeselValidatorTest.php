@@ -13,6 +13,7 @@ namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Pesel;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\PeselValidator;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
 
@@ -43,11 +44,9 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
         $this->assertNoViolation();
     }
 
-    /**
-     * @expectedException \Symfony\Component\Validator\Exception\UnexpectedTypeException
-     */
     public function testExpectsStringCompatibleType()
     {
+        $this->expectException(UnexpectedTypeException::class);
         $this->validator->validate(new \stdClass(), new Pesel());
     }
 
@@ -66,9 +65,9 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
      */
     public function testValidPeselStrict($pesel)
     {
-        $this->validator->validate($pesel, new Pesel(array(
+        $this->validator->validate($pesel, new Pesel([
             'strict' => true,
-        )));
+        ]));
 
         $this->assertNoViolation();
     }
@@ -78,9 +77,9 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidPesel($pesel)
     {
-        $constraint = new Pesel(array(
+        $constraint = new Pesel([
             'message' => 'myMessage',
-        ));
+        ]);
 
         $this->validator->validate($pesel, $constraint);
 
@@ -94,10 +93,10 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidPeselStrict($pesel)
     {
-        $constraint = new Pesel(array(
+        $constraint = new Pesel([
             'strict' => true,
             'message' => 'myMessage',
-        ));
+        ]);
 
         $this->validator->validate($pesel, $constraint);
 
@@ -111,10 +110,10 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
      */
     public function getNoneStrictValidPeselNumbers()
     {
-        return array(
-            array('55813111111'),
-            array('44051401358'),
-        );
+        return [
+            ['55813111111'],
+            ['44051401358'],
+        ];
     }
 
     /**
@@ -122,9 +121,9 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
      */
     public function getStrictValidPeselNumbers()
     {
-        return array(
-            array('44051401359'),
-        );
+        return [
+            ['44051401359'],
+        ];
     }
 
     /**
@@ -132,12 +131,12 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
      */
     public function getNoneStrictInvalidPeselNumbers()
     {
-        return array(
-            array('12314'),
-            array('12314111111'),
-            array('55813211111'),
-            array('123a41f1111'),
-        );
+        return [
+            ['12314'],
+            ['12314111111'],
+            ['55813211111'],
+            ['123a41f1111'],
+        ];
     }
 
     /**
@@ -145,13 +144,9 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
      */
     public function getStrictInvalidPeselNumbers()
     {
-        return array(
-            array('44051401358'),
-        );
+        return [
+            ['44051401358'],
+        ];
     }
 
-    protected function getApiVersion()
-    {
-        return Validation::API_VERSION_2_5_BC;
-    }
 }
