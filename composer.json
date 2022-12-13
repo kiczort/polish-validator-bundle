@@ -12,14 +12,14 @@
     "require": {
         "php": ">=7.1.3",
         "kiczort/polish-validator": "^1.1",
-        "symfony/config" : "~4.4 || ~5.0 || ~6.0",
-        "symfony/http-kernel" : "~4.4 || ~5.0 || ~6.0",
-        "symfony/dependency-injection" : "~4.4 || ~5.0 || ~6.0",
-        "symfony/validator": "~4.4 || ~5.0 || ~6.0"
+        "symfony/config" : "~4.4 || ~5.0 || ~6.0 || ~6.1",
+        "symfony/http-kernel" : "~4.4 || ~5.0 || ~6.0 || ~6.1",
+        "symfony/dependency-injection" : "~4.4 || ~5.0 || ~6.0 || ~6.1",
+        "symfony/validator": "~4.4 || ~5.0 || ~6.0 || ~6.1"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.0 || ~8.0 || ~9.0",
-        "symfony/phpunit-bridge": "~4.4 || ~5.0 || ~6.0"
+        "symfony/phpunit-bridge": "~4.4 || ~5.0 || ~6.0 || ~6.1"
     },
     "autoload": {
         "psr-0": {
