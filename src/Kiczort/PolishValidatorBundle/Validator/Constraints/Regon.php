@@ -12,15 +12,27 @@
 namespace Kiczort\PolishValidatorBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Attribute\HasNamedArguments;
 
 /**
  * @author Grzegorz Koziński <gkozinski@gmail.com>
  *
  * @Annotation
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 class Regon extends Constraint
 {
-    public $message = 'This is not a valid REGON number.';
+    public string $message = 'This is not a valid REGON number.';
+
+    /**
+     * @param string $message
+     */
+    #[HasNamedArguments]
+    public function __construct(string $message)
+    {
+        $this->message = $message;
+    }
+
 
     /**
      * {@inheritdoc}

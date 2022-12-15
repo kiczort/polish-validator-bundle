@@ -12,16 +12,30 @@
 namespace Kiczort\PolishValidatorBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Attribute\HasNamedArguments;
 
 /**
  * @author Grzegorz Koziński <gkozinski@gmail.com>
  *
  * @Annotation
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 class Pesel extends Constraint
 {
-    public $message = 'This is not a valid PESEL number.';
-    public $strict;
+    public string $message = 'This is not a valid PESEL number.';
+    public bool $strict = true;
+
+    /**
+     * @param string $message
+     * @param  bool $strict
+     */
+    #[HasNamedArguments]
+    public function __construct(string $message, bool $strict)
+    {
+        $this->message = $message;
+        $this->strict = $strict;
+    }
+
 
     /**
      * {@inheritdoc}

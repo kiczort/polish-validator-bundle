@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=7.1.3",
+        "php": ">=8.0",
         "kiczort/polish-validator": "^1.1",
         "symfony/config" : "~4.4 || ~5.0 || ~6.0 || ~6.1",
         "symfony/http-kernel" : "~4.4 || ~5.0 || ~6.0 || ~6.1",
