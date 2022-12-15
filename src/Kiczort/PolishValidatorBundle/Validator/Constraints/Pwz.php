@@ -40,6 +40,6 @@ class Pwz extends Constraint
      */
     public function validatedBy(): string
     {
-        return static::class.'PwzValidator';
+        return static::class.'Validator';
     }
 }

@@ -40,6 +40,6 @@ class Regon extends Constraint
      */
     public function validatedBy(): string
     {
-        return static::class.'RegonValidator';
+        return static::class.'Validator';
     }
 }

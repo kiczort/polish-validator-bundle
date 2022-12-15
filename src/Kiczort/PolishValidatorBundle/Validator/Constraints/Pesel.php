@@ -43,6 +43,6 @@ class Pesel extends Constraint
      */
     public function validatedBy(): string
     {
-        return static::class.'PeselValidator';
+        return static::class.'Validator';
     }
 }
