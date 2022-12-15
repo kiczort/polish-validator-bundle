@@ -28,8 +28,9 @@ class Pwz extends Constraint
      * @param string $message
      */
     #[HasNamedArguments]
-    public function __construct(string $message)
+    public function __construct(string $message, array $groups = null, mixed $payload = null)
     {
+        parent::__construct([], $groups, $payload);
         $this->message = $message;
     }
 

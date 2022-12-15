@@ -30,8 +30,9 @@ class Pesel extends Constraint
      * @param  bool $strict
      */
     #[HasNamedArguments]
-    public function __construct(string $message, bool $strict)
+    public function __construct(string $message, bool $strict, array $groups = null, mixed $payload = null)
     {
+        parent::__construct([], $groups, $payload);
         $this->message = $message;
         $this->strict = $strict;
     }
