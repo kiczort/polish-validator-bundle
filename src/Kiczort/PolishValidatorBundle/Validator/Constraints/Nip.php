@@ -40,6 +40,6 @@ class Nip extends Constraint
      */
     public function validatedBy(): string
     {
-        return 'kiczort.validator.nip';
+        return static::class.'kiczort.validator.nip';
     }
 }
