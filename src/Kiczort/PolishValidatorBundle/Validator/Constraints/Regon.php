@@ -40,6 +40,6 @@ class Regon extends Constraint
      */
     public function validatedBy(): string
     {
-        return static::class.'kiczort.validator.regon';
+        return static::class.'RegonValidator';
     }
 }

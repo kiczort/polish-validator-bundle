@@ -43,6 +43,6 @@ class Pesel extends Constraint
      */
     public function validatedBy(): string
     {
-        return static::class.'kiczort.validator.pesel';
+        return static::class.'PeselValidator';
     }
 }
