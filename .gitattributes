@@ -1,0 +1,8 @@
+/.docker export-ignore
+/.gitattributes export-ignore
+/.github export-ignore
+/.gitignore export-ignore
+/docker-compose.yaml export-ignore
+/README.md export-ignore
+/phpunit.xml.dist export-ignore
+/tests export-ignore

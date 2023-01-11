@@ -25,17 +25,6 @@ class Pwz extends Constraint
     public string $message = 'This is not a valid PWZ number.';
 
     /**
-     * @param string $message
-     */
-    #[HasNamedArguments]
-    public function __construct(string $message, array $groups = null, mixed $payload = null)
-    {
-        parent::__construct([], $groups, $payload);
-        $this->message = $message;
-    }
-
-
-    /**
      * {@inheritdoc}
      */
     public function validatedBy(): string

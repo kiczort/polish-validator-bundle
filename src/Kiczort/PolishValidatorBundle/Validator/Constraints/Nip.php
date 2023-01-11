@@ -22,19 +22,7 @@ use Symfony\Component\Validator\Attribute\HasNamedArguments;
 #[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 class Nip extends Constraint
 {
-
     public string $message = 'This is not a valid NIP number.';
-
-    /**
-     * @param string $message
-     */
-    #[HasNamedArguments]
-    public function __construct(string $message, array $groups = null, mixed $payload = null)
-    {
-        parent::__construct([], $groups, $payload);
-        $this->message = $message;
-    }
-
     /**
      * {@inheritdoc}
      */

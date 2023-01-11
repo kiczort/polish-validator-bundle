@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
+namespace Tests\Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Pwz;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\PwzValidator;
@@ -47,7 +47,7 @@ class PwzValidatorTest extends ConstraintValidatorTestCase
      */
     public function testValidPwz($pwz)
     {
-        $this->validator->validate($pwz, new Pwz());
+        $this->validator->validate($pwz, new Pwz(...[]));
 
         $this->assertNoViolation();
     }

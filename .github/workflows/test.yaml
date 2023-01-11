@@ -16,14 +16,13 @@ jobs:
           - php-version: '8.1'
             symfony-version: '^6.0'
             composer-version: v2
-            stability: RC
+            stability: stable
             coverage: none
             experimental: false
           - php-version: '8.2'
             symfony-version: '^6.1'
             composer-version: v2
             stability: RC
-            coverage: none
             experimental: false
 
     steps:

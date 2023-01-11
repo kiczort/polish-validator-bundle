@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Kiczort\PolishValidatorBundle\Tests\Constraints;
+namespace Tests\Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Pesel;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\PeselValidator;

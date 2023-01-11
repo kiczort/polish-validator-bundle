@@ -23,21 +23,7 @@ use Symfony\Component\Validator\Attribute\HasNamedArguments;
 class Pesel extends Constraint
 {
     public string $message = 'This is not a valid PESEL number.';
-    public bool $strict = true;
-
-    /**
-     * @param string $message
-     * @param  bool $strict
-     */
-    #[HasNamedArguments]
-    public function __construct(string $message, bool $strict, array $groups = null, mixed $payload = null)
-    {
-        parent::__construct([], $groups, $payload);
-        $this->message = $message;
-        $this->strict = $strict;
-    }
-
-
+    public bool $strict = false;
     /**
      * {@inheritdoc}
      */

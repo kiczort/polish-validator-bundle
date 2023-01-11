@@ -1,0 +1,13 @@
+services:
+    php:
+        build:
+            dockerfile: .docker/php/Dockerfile
+            context: .
+        environment:
+            COMPOSER_HOME: /.composer
+        volumes:
+            - .:/app
+            - ~/.composer:/.composer
+        user: 1000:1000
+        working_dir: /app
+        command: tail -f /dev/null
