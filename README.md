@@ -63,6 +63,7 @@ class Person
      *     strict = true
      * )
      */
+     #[KiczortAssert\Pesel(message:  "The '{{ value }}' is not a valid PESEL number.", strict: true)]
      protected $pesel;
 }
 ```
@@ -81,6 +82,7 @@ class Person
     /**
      * @KiczortAssert\Nip
      */
+     #[KiczortAssert\Nip(message:  "This is not a valid NIP number.")]
      protected $nip;
 }
 ```
@@ -99,6 +101,7 @@ class Company
     /**
      * @KiczortAssert\Regon
      */
+     #[KiczortAssert\Regon(message:  "This is not a valid REGON number.")]
      protected $regon;
 }
 ```
@@ -122,6 +125,7 @@ class Doctor
     /**
      * @KiczortAssert\Pwz
      */
+     #[KiczortAssert\Pwz(message:  "This is not a valid PWZ number.")]
      protected $pwz;
 }
 ```

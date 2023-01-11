@@ -6,54 +6,23 @@ jobs:
   test:
     name: PHP ${{ matrix.php-version }} + Symfony ${{ matrix.symfony-version }}
 
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
 
     continue-on-error: ${{ matrix.experimental }}
 
     strategy:
       matrix:
         include:
-          - php-version: '7.1'
-            symfony-version: '^4.4'
-            composer-version: v1
-            stability: stable
-            coverage: none
-            experimental: false
-          - php-version: '7.2'
-            symfony-version: '^4.4'
-            composer-version: v1
-            stability: stable
-            coverage: none
-            experimental: false
-          - php-version: '7.2'
-            symfony-version: '^5.0'
-            composer-version: v1
-            stability: stable
-            coverage: none
-            experimental: false
-          - php-version: '7.3'
-            symfony-version: '^5.0'
-            composer-version: v1
-            stability: stable
-            coverage: none
-            experimental: false
-          - php-version: '7.4'
-            symfony-version: '^5.0'
-            composer-version: v2
-            stability: stable
-            coverage: xdebug
-            experimental: false
-          - php-version: '8.0'
-            symfony-version: '^5.0'
-            composer-version: v2
-            stability: RC
-            coverage: none
-            experimental: false
           - php-version: '8.1'
-            symfony-version: '^5.0'
+            symfony-version: '^6.0'
+            composer-version: v2
+            stability: stable
+            coverage: none
+            experimental: false
+          - php-version: '8.2'
+            symfony-version: '^6.1'
             composer-version: v2
             stability: RC
-            coverage: none
             experimental: false
 
     steps:

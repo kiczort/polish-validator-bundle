@@ -44,6 +44,6 @@ class PwzValidator extends ValidatorAbstract
      */
     public function getValidatorConstraintClass(): string
     {
-        return __NAMESPACE__ . '\Pwz';
+        return Pwz::class;
     }
 }

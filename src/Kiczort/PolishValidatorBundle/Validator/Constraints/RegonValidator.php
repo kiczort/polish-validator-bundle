@@ -41,6 +41,6 @@ class RegonValidator extends ValidatorAbstract
      */
     public function getValidatorConstraintClass(): string
     {
-        return __NAMESPACE__ . '\Regon';
+        return Regon::class;
     }
 }

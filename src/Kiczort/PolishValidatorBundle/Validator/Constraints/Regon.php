@@ -12,21 +12,23 @@
 namespace Kiczort\PolishValidatorBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Attribute\HasNamedArguments;
 
 /**
  * @author Grzegorz Koziński <gkozinski@gmail.com>
  *
  * @Annotation
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 class Regon extends Constraint
 {
-    public $message = 'This is not a valid REGON number.';
+    public string $message = 'This is not a valid REGON number.';
 
     /**
      * {@inheritdoc}
      */
     public function validatedBy(): string
     {
-        return 'kiczort.validator.regon';
+        return static::class.'Validator';
     }
 }

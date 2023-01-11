@@ -12,21 +12,23 @@
 namespace Kiczort\PolishValidatorBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Attribute\HasNamedArguments;
 
 /**
  * @author Michał Mleczko <kontakt@michalmleczko.waw.pl>
  *
  * @Annotation
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 class Pwz extends Constraint
 {
-    public $message = 'This is not a valid PWZ number.';
+    public string $message = 'This is not a valid PWZ number.';
 
     /**
      * {@inheritdoc}
      */
     public function validatedBy(): string
     {
-        return 'kiczort.validator.pwz';
+        return static::class.'Validator';
     }
 }

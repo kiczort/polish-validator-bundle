@@ -41,6 +41,6 @@ class PeselValidator extends ValidatorAbstract
      */
     public function getValidatorConstraintClass(): string
     {
-        return __NAMESPACE__ . '\Pesel';
+        return Pesel::class;
     }
 }

@@ -12,21 +12,22 @@
 namespace Kiczort\PolishValidatorBundle\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraint;
+use Symfony\Component\Validator\Attribute\HasNamedArguments;
 
 /**
  * @author Grzegorz Koziński <gkozinski@gmail.com>
  *
  * @Annotation
  */
+#[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]
 class Nip extends Constraint
 {
-    public $message = 'This is not a valid NIP number.';
-
+    public string $message = 'This is not a valid NIP number.';
     /**
      * {@inheritdoc}
      */
     public function validatedBy(): string
     {
-        return 'kiczort.validator.nip';
+        return static::class.'Validator';
     }
 }
