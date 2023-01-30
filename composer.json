@@ -1,5 +1,5 @@
 {
-    "name": "mikoweb/polish-validator-bundle",
+    "name": "kiczort/polish-validator-bundle",
     "description": "Symfony bundle with validators for Polish identification numbers: PESEL, NIP, REGON, PWZ.",
     "keywords": ["polish validator", "pl validator", "pesel", "nip", "regon", "pwz", "symfony bundle", "validator", "symfony validator"],
     "license": "MIT",
