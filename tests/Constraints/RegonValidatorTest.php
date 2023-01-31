@@ -94,6 +94,7 @@ class RegonValidatorTest extends ConstraintValidatorTestCase
             ['1234567890'],
             ['123456789012345'],
             ['12345678'],
+            'Long REGON validation' => ['12346678512347']
         ];
     }
 

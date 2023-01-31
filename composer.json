@@ -12,7 +12,7 @@
     "require": {
         "php": ">=8.0",
         "ext-intl": "*",
-        "kiczort/polish-validator": "^1.1",
+        "kiczort/polish-validator": "^1.2",
         "symfony/config" : "~6.1",
         "symfony/http-kernel" : "~6.1",
         "symfony/dependency-injection" : "~6.1",
