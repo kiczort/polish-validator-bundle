@@ -57,14 +57,11 @@ use Kiczort\PolishValidatorBundle\Validator\Constraints  as KiczortAssert;
 
 class Person
 {
-    /**
-     * @KiczortAssert\Pesel(
-     *     message = "The '{{ value }}' is not a valid PESEL number.",
-     *     strict = true
-     * )
-     */
-     #[KiczortAssert\Pesel(message:  "The '{{ value }}' is not a valid PESEL number.", strict: true)]
-     protected $pesel;
+    #[KiczortAssert\Pesel(
+        message: "The '{{ value }}' is not a valid PESEL number.",
+        strict: true
+    )]
+    protected $pesel;
 }
 ```
 
@@ -79,11 +76,8 @@ use Kiczort\PolishValidatorBundle\Validator\Constraints as KiczortAssert;
 
 class Person
 {
-    /**
-     * @KiczortAssert\Nip
-     */
-     #[KiczortAssert\Nip(message:  "This is not a valid NIP number.")]
-     protected $nip;
+    #[KiczortAssert\Nip(message: "This is not a valid NIP number.")]
+    protected $nip;
 }
 ```
 
@@ -98,11 +92,8 @@ use Kiczort\PolishValidatorBundle\Validator\Constraints as KiczortAssert;
 
 class Company
 {
-    /**
-     * @KiczortAssert\Regon
-     */
-     #[KiczortAssert\Regon(message:  "This is not a valid REGON number.")]
-     protected $regon;
+    #[KiczortAssert\Regon(message: "This is not a valid REGON number.")]
+    protected $regon;
 }
 ```
 
@@ -122,11 +113,8 @@ use Kiczort\PolishValidatorBundle\Validator\Constraints  as KiczortAssert;
 
 class Doctor
 {
-    /**
-     * @KiczortAssert\Pwz
-     */
-     #[KiczortAssert\Pwz(message:  "This is not a valid PWZ number.")]
-     protected $pwz;
+    #[KiczortAssert\Pwz(message: "This is not a valid PWZ number.")]
+    protected $pwz;
 }
 ```
 

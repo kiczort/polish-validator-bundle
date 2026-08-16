@@ -14,6 +14,7 @@ namespace Tests\Kiczort\PolishValidatorBundle\Constraints;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Nip;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\NipValidator;
 use stdClass;
+use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
@@ -22,10 +23,7 @@ use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
  */
 class NipValidatorTest extends ConstraintValidatorTestCase
 {
-    /**
-     * @return NipValidator
-     */
-    protected function createValidator()
+    protected function createValidator(): ConstraintValidatorInterface
     {
         return new NipValidator();
     }
@@ -65,9 +63,7 @@ class NipValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidNip($nip)
     {
-        $constraint = new Nip([
-            'message' => 'myMessage',
-        ]);
+        $constraint = new Nip(message: 'myMessage');
 
         $this->validator->validate($nip, $constraint);
 
