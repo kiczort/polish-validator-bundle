@@ -24,6 +24,14 @@ class Regon extends Constraint
 {
     public string $message = 'This is not a valid REGON number.';
 
+    #[HasNamedArguments]
+    public function __construct(?string $message = null, ?array $groups = null, mixed $payload = null)
+    {
+        parent::__construct(null, $groups, $payload);
+
+        $this->message = $message ?? $this->message;
+    }
+
     /**
      * {@inheritdoc}
      */

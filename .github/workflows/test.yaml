@@ -8,22 +8,26 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    continue-on-error: ${{ matrix.experimental }}
-
     strategy:
+      fail-fast: false
       matrix:
         include:
-          - php-version: '8.1'
-            symfony-version: '^6.0'
-            composer-version: v2
-            stability: stable
-            coverage: none
-            experimental: false
           - php-version: '8.2'
-            symfony-version: '^6.1'
+            symfony-version: '^6.4'
             composer-version: v2
-            stability: RC
-            experimental: false
+            coverage: none
+          - php-version: '8.3'
+            symfony-version: '^7.4'
+            composer-version: v2
+            coverage: none
+          - php-version: '8.4'
+            symfony-version: '^8.0'
+            composer-version: v2
+            coverage: none
+          - php-version: '8.5'
+            symfony-version: '^8.0'
+            composer-version: v2
+            coverage: xdebug
 
     steps:
       - name: Checkout
@@ -41,11 +45,7 @@ jobs:
         run: composer validate --no-check-lock
 
       - name: Configure Symfony version
-        run: composer require --no-update symfony/framework-bundle "${{ matrix.symfony-version }}"
-
-      - name: Configure composer stability
-        if: matrix.stability != 'stable'
-        run: composer config minimum-stability "${{ matrix.stability }}"
+        run: composer require --no-update symfony/config "${{ matrix.symfony-version }}" symfony/http-kernel "${{ matrix.symfony-version }}" symfony/dependency-injection "${{ matrix.symfony-version }}" symfony/validator "${{ matrix.symfony-version }}" symfony/yaml "${{ matrix.symfony-version }}" symfony/phpunit-bridge "${{ matrix.symfony-version }}" symfony/intl "${{ matrix.symfony-version }}"
 
       - name: Install Composer dependencies
         uses: ramsey/composer-install@v3

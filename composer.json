@@ -10,19 +10,20 @@
         }
     ],
     "require": {
-        "php": ">=8.0",
+        "php": ">=8.2",
         "ext-intl": "*",
         "kiczort/polish-validator": "^1.2",
-        "symfony/config" : "~6.1",
-        "symfony/http-kernel" : "~6.1",
-        "symfony/dependency-injection" : "~6.1",
-        "symfony/validator": "~6.1"
+        "symfony/config" : "^6.4 || ^7.0 || ^8.0",
+        "symfony/http-kernel" : "^6.4 || ^7.0 || ^8.0",
+        "symfony/dependency-injection" : "^6.4 || ^7.0 || ^8.0",
+        "symfony/validator": "^6.4 || ^7.0 || ^8.0",
+        "symfony/yaml": "^6.4 || ^7.0 || ^8.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
         "phpunit/phpunit": "~9.0",
-        "symfony/phpunit-bridge": "~6.1",
-        "symfony/intl": "^6.2"
+        "symfony/phpunit-bridge": "^6.4 || ^7.0 || ^8.0",
+        "symfony/intl": "^6.4 || ^7.0 || ^8.0"
     },
     "autoload": {
         "psr-4": {

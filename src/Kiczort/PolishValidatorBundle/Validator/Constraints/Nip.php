@@ -23,6 +23,15 @@ use Symfony\Component\Validator\Attribute\HasNamedArguments;
 class Nip extends Constraint
 {
     public string $message = 'This is not a valid NIP number.';
+
+    #[HasNamedArguments]
+    public function __construct(?string $message = null, ?array $groups = null, mixed $payload = null)
+    {
+        parent::__construct(null, $groups, $payload);
+
+        $this->message = $message ?? $this->message;
+    }
+
     /**
      * {@inheritdoc}
      */

@@ -24,6 +24,16 @@ class Pesel extends Constraint
 {
     public string $message = 'This is not a valid PESEL number.';
     public bool $strict = false;
+
+    #[HasNamedArguments]
+    public function __construct(?string $message = null, ?bool $strict = null, ?array $groups = null, mixed $payload = null)
+    {
+        parent::__construct(null, $groups, $payload);
+
+        $this->message = $message ?? $this->message;
+        $this->strict = $strict ?? $this->strict;
+    }
+
     /**
      * {@inheritdoc}
      */

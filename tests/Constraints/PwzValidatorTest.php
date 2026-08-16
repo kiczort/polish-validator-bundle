@@ -14,6 +14,7 @@ namespace Tests\Kiczort\PolishValidatorBundle\Tests\Constraints;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Pwz;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\PwzValidator;
 use stdClass;
+use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 
@@ -57,9 +58,7 @@ class PwzValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidPwz($pwz)
     {
-        $constraint = new Pwz([
-            'message' => 'myMessage',
-        ]);
+        $constraint = new Pwz(message: 'myMessage');
 
         $this->validator->validate($pwz, $constraint);
 
@@ -98,10 +97,7 @@ class PwzValidatorTest extends ConstraintValidatorTestCase
         ];
     }
 
-    /**
-     * @return PwzValidator
-     */
-    protected function createValidator()
+    protected function createValidator(): ConstraintValidatorInterface
     {
         return new PwzValidator();
     }

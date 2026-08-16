@@ -13,6 +13,7 @@ namespace Tests\Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Pesel;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\PeselValidator;
+use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
@@ -22,10 +23,7 @@ use Symfony\Component\Validator\Validation;
  */
 class PeselValidatorTest extends ConstraintValidatorTestCase
 {
-    /**
-     * @return PeselValidator
-     */
-    protected function createValidator()
+    protected function createValidator(): ConstraintValidatorInterface
     {
         return new PeselValidator();
     }
@@ -65,9 +63,7 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
      */
     public function testValidPeselStrict($pesel)
     {
-        $this->validator->validate($pesel, new Pesel([
-            'strict' => true,
-        ]));
+        $this->validator->validate($pesel, new Pesel(strict: true));
 
         $this->assertNoViolation();
     }
@@ -77,9 +73,7 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidPesel($pesel)
     {
-        $constraint = new Pesel([
-            'message' => 'myMessage',
-        ]);
+        $constraint = new Pesel(message: 'myMessage');
 
         $this->validator->validate($pesel, $constraint);
 
@@ -93,10 +87,7 @@ class PeselValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidPeselStrict($pesel)
     {
-        $constraint = new Pesel([
-            'strict' => true,
-            'message' => 'myMessage',
-        ]);
+        $constraint = new Pesel(message: 'myMessage', strict: true);
 
         $this->validator->validate($pesel, $constraint);
 

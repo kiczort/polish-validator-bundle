@@ -13,6 +13,7 @@ namespace Tests\Kiczort\PolishValidatorBundle\Tests\Constraints;
 
 use Kiczort\PolishValidatorBundle\Validator\Constraints\Regon;
 use Kiczort\PolishValidatorBundle\Validator\Constraints\RegonValidator;
+use Symfony\Component\Validator\ConstraintValidatorInterface;
 use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
@@ -57,9 +58,7 @@ class RegonValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidRegon($regon)
     {
-        $constraint = new Regon([
-            'message' => 'myMessage',
-        ]);
+        $constraint = new Regon(message: 'myMessage');
 
         $this->validator->validate($regon, $constraint);
 
@@ -98,10 +97,7 @@ class RegonValidatorTest extends ConstraintValidatorTestCase
         ];
     }
 
-    /**
-     * @return RegonValidator
-     */
-    protected function createValidator()
+    protected function createValidator(): ConstraintValidatorInterface
     {
         return new RegonValidator();
     }
